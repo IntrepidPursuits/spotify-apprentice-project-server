@@ -7,5 +7,6 @@ Rails.application.routes.draw do
               defaults: { format: :json }) do
     resources :artists, only: :index
     resources :songs, only: [:index, :show]
+    resources :mixtapes, only: [:create]
   end
 end
