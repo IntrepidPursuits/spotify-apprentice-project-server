@@ -3,40 +3,6 @@
   "id": "http://spotify-apprentice-app.com",
   "type": "object",
   "properties": {
-    "songs": {
-      "id": "http://spotify-apprentice-app.com/songs",
-      "type": "array",
-      "items": [
-        {
-          "id": "http://spotify-apprentice-app.com/songs/0",
-          "type": "object",
-          "properties": {
-            "id": {
-              "id": "http://spotify-apprentice-app.com/songs/0/id",
-              "type": "string"
-            },
-            "name": {
-              "id": "http://spotify-apprentice-app.com/songs/0/name",
-              "type": "string"
-            },
-            "spotify_uri": {
-              "id": "http://spotify-apprentice-app.com/songs/0/spotify_uri",
-              "type": "string"
-            },
-            "artist_id": {
-              "id": "http://spotify-apprentice-app.com/songs/0/artist_id",
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "name",
-            "spotify_uri",
-            "artist_id"
-          ]
-        }
-      ]
-    },
     "artists": {
       "id": "http://spotify-apprentice-app.com/artists",
       "type": "array",
@@ -67,19 +33,47 @@
           "song_ids": {
             "id": "http://spotify-apprentice-app.com/artists/0/song_ids",
             "type": "array",
-            "items": [
-              {
-                "id": "http://spotify-apprentice-app.com/artists/0/song_ids/0",
-                "type": "string"
-              }
-            ]
+            "items": {
+              "id": "http://spotify-apprentice-app.com/artists/0/song_ids/0",
+              "type": "string"
+            }
           }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "spotify_uri",
+          "songs_count",
+          "song_ids"
+        ]
+      }
+    },
+    "song": {
+      "id": "http://spotify-apprentice-app.com/song",
+      "type": "object",
+      "properties": {
+        "id": {
+          "id": "http://spotify-apprentice-app.com/song/id",
+          "type": "string"
+        },
+        "name": {
+          "id": "http://spotify-apprentice-app.com/song/name",
+          "type": "string"
+        },
+        "spotify_uri": {
+          "id": "http://spotify-apprentice-app.com/song/spotify_uri",
+          "type": "string"
+        },
+        "artist_id": {
+          "id": "http://spotify-apprentice-app.com/song/artist_id",
+          "type": "string"
         }
       }
     }
   },
   "required": [
-    "songs",
-    "artists"
+    "artists",
+    "song"
   ]
 }

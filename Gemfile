@@ -27,6 +27,7 @@ gem 'title'
 gem 'uglifier'
 gem 'unicorn'
 gem 'versionist'
+gem 'counter_culture', '~> 0.1.23'
 
 group :development do
   gem 'spring'

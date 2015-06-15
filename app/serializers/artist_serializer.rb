@@ -1,3 +1,6 @@
 class ArtistSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :spotify_uri
+  embed :id
+  has_many :songs
+
+  attributes :id, :name, :description, :spotify_uri, :songs_count
 end
