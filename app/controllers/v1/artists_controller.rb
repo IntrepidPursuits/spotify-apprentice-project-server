@@ -1,4 +1,4 @@
-class V1::ArtistsController < ApplicationController
+class V1::ArtistsController < ApiController
   def create
     artist = Artist.new(artist_params)
 
