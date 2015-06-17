@@ -5,6 +5,6 @@ Rails.application.routes.draw do
                 value: 'application/vnd.spotify-apprentice-app.com; version=1'
               },
               defaults: { format: :json }) do
-    resources :artists, only: :index
+    resources :artists, only: [:index, :create]
   end
 end
