@@ -4,24 +4,18 @@ describe 'artists endpoints' do
   describe 'POST /artists' do
     context 'with valid params' do
       it 'returns a 201 - Created response' do
-        artist_attrs = attributes_for(:artist)
-
         post(artists_url, { artist: artist_attrs }.to_json, accept_headers)
 
         expect(response).to have_http_status :created
       end
 
       it 'creates a new artist' do
-        artist_attrs = attributes_for(:artist)
-
         expect {
           post(artists_url, { artist: artist_attrs }.to_json, accept_headers)
         }.to change { Artist.count }.by 1
       end
 
       it 'returns JSON for the artist' do
-        artist_attrs = attributes_for(:artist)
-
         post(artists_url, { artist: artist_attrs }.to_json, accept_headers)
 
         expect(response).to match_response_schema :artist
@@ -54,4 +48,8 @@ describe 'artists endpoints' do
       expect(response).to match_response_schema :artists
     end
   end
+end
+
+def artist_attrs
+  @artist_attrs ||= attributes_for(:artist)
 end
