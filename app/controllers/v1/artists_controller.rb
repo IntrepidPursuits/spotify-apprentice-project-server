@@ -2,9 +2,12 @@ class V1::ArtistsController < ApplicationController
   def create
     artist = Artist.new(artist_params)
 
-    artist.save
-    
-    render json: artist, status: :created
+    if artist.save
+      render json: artist, status: :created
+    else
+      render json: { errors: artist.errors.full_messages },
+             status: :unprocessable_entity
+    end
   end
 
   def index

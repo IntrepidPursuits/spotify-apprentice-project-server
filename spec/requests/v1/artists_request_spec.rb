@@ -23,8 +23,21 @@ describe 'artists endpoints' do
     end
 
     context 'missing a name' do
-      it 'returns a 422 - Unprocessable Entity response'
-      it 'returns JSON for errors'
+      it 'returns a 422 - Unprocessable Entity response' do
+        invalid_attrs = artist_attrs.merge(name: '')
+
+        post(artists_url, { artist: invalid_attrs }.to_json, accept_headers)
+
+        expect(response).to have_http_status :unprocessable_entity
+      end
+
+      it 'returns JSON for errors' do
+        invalid_attrs = artist_attrs.merge(name: '')
+
+        post(artists_url, { artist: invalid_attrs }.to_json, accept_headers)
+
+        expect(errors).to include "can't be blank"
+      end
     end
 
     context 'missing spotify_uri' do
